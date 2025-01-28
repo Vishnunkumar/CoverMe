@@ -72,3 +72,24 @@ class LinkedInMessagePrompt(Prompt):
 
     def get_template(self):
         return self.prompt
+
+class ResumeModificationPrompt(Prompt):
+    generator_prompt = """
+        Modify the provided resume to align with the specified job description while ensuring that all facts in the resume are true. Focus on rephrasing and restructuring the content to highlight relevant skills and experiences.
+        Job Description: {input}
+        Resume: {context}
+        Instructions:
+        Review the job description and note key responsibilities and required skills.
+        Examine the resume and identify relevant experiences and skills.
+        Rephrase sections of the resume to incorporate keywords from the job description while keeping all information accurate.
+        Adjust the order of experiences if necessary to prioritize relevant qualifications.
+        Ensure the tone is professional and formatting is consistent.
+        Output:
+        Provide a revised version of the resume, highlighting changes made to align with the job description.
+        """
+   
+    def __init__(self):
+        self.prompt = ChatPromptTemplate.from_template(self.generator_prompt)
+
+    def get_template(self):
+        return self.prompt

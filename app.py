@@ -13,11 +13,12 @@ from st_copy_to_clipboard import st_copy_to_clipboard
 from components.document import PDFDocumentLoader
 from components.embedding import HuggingFaceEmbedding
 from components.llm import CohereLLMChain
-from components.prompt import GeneratorPrompt, LinkedInMessagePrompt
+from components.prompt import GeneratorPrompt, LinkedInMessagePrompt, ResumeModificationPrompt
 
 option_generators = {
     "LinkedIn Message": LinkedInMessagePrompt(),
-    "Cover Letter": GeneratorPrompt()
+    "Cover Letter": GeneratorPrompt(),
+    "Modify Resume": ResumeModificationPrompt()
 }
 
 
@@ -39,7 +40,7 @@ def cover_me_app():
                                    key="job-desc")
     generator_option = st.selectbox(
         "Select the type of generation you would like to do:",
-        ("LinkedIn Message", "Cover Letter")
+        ("LinkedIn Message", "Cover Letter", "Modify Resume")
     )
     get_button = st.button("Get generated content")
 

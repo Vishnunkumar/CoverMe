@@ -75,17 +75,35 @@ class LinkedInMessagePrompt(Prompt):
 
 class ResumeModificationPrompt(Prompt):
     generator_prompt = """
-        Modify the provided resume to align with the specified job description while ensuring that all facts in the resume are true. Focus on rephrasing and restructuring the content to highlight relevant skills and experiences.
+                
+        Objective: Modify the provided resume to align with the specified job description while ensuring that all facts in the resume are true. Focus on rephrasing and restructuring the content to highlight relevant skills and experiences.
         Job Description: {input}
         Resume: {context}
         Instructions:
-        Review the job description and note key responsibilities and required skills.
-        Examine the resume and identify relevant experiences and skills.
-        Rephrase sections of the resume to incorporate keywords from the job description while keeping all information accurate.
-        Adjust the order of experiences if necessary to prioritize relevant qualifications.
-        Ensure the tone is professional and formatting is consistent.
+        Review the Job Description:
+        Carefully read through the job description to understand the key responsibilities, required skills, and qualifications.
+        Take note of specific keywords or phrases that are frequently mentioned, as these are likely important to the employer.
+        Examine the Resume:
+        Read through the existing resume thoroughly.
+        Identify experiences, skills, and accomplishments that are relevant to the job description.
+        Highlight or make notes of sections that can be improved or rephrased to better match the job requirements.
+        Modify the Resume:
+        Begin rephrasing sections of the resume to incorporate keywords and phrases from the job description.
+        Focus on aligning your past experiences with the responsibilities outlined in the job description. For example:
+        If the job requires "project management skills," ensure that any relevant experience with project management is clearly articulated.
+        Use action verbs and quantifiable achievements to enhance descriptions (e.g., "Led a team of 5" instead of "Responsible for managing a team").
+        Adjust the order of experiences or sections if necessary to prioritize qualifications that are most relevant to the job.
+        Ensure that any new phrasing accurately reflects your actual experiences and skills without exaggeration or misrepresentation.
+        Maintain Professionalism:
+        Keep the tone professional, clear, and concise throughout the resume.
+        Ensure that formatting is consistent (e.g., font size, bullet points) and visually appealing.
+        Avoid jargon or overly complex language; clarity is key.
+        Final Review:
+        After making modifications, review the updated resume for clarity, coherence, and flow.
+        Check for grammatical errors or typos.
+        Confirm that all information is accurate and effectively showcases how you meet the job requirements.
         Output:
-        Provide a revised version of the resume, highlighting changes made to align with the job description.
+        Provide a revised version of the resume with clear indications of changes made in response to the job description. Optionally, include a brief summary explaining how each modification aligns with specific elements of the job description.
         """
    
     def __init__(self):

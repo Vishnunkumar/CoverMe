@@ -1,5 +1,8 @@
-import streamlit as st
+import os
+import tempfile
+from tempfile import NamedTemporaryFile
 
+import streamlit as st
 from langchain.chains import create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_community.vectorstores import SKLearnVectorStore
@@ -10,12 +13,11 @@ from st_copy_to_clipboard import st_copy_to_clipboard
 from components.document import PDFDocumentLoader
 from components.embedding import HuggingFaceEmbedding
 from components.llm import CohereLLMChain
-from components.prompt import GeneratorPrompt, LinkedInMessagePrompt, ResumeModificationPrompt
+from components.prompt import GeneratorPrompt, LinkedInMessagePrompt
 
 option_generators = {
     "LinkedIn Message": LinkedInMessagePrompt(),
-    "Cover Letter": GeneratorPrompt(),
-    "Modify Resume": ResumeModificationPrompt()
+    "Cover Letter": GeneratorPrompt()
 }
 
 
@@ -37,7 +39,7 @@ def cover_me_app():
                                    key="job-desc")
     generator_option = st.selectbox(
         "Select the type of generation you would like to do:",
-        ("LinkedIn Message", "Cover Letter", "Modify Resume")
+        ("LinkedIn Message", "Cover Letter")
     )
     get_button = st.button("Get generated content")
 
@@ -85,4 +87,5 @@ def main():
     cover_me_app()
 
 
-st.text("CoverMe is temporarily unavailable, please try again after sometime.")
+if __name__ == "__main__":
+    main()

@@ -85,4 +85,6 @@ def main():
     cover_me_app()
 
 
-st.text("CoverMe is temporarily unavailable, please try again after sometime.")
+#st.text("CoverMe is temporarily unavailable, please try again after sometime.")
+if __name__ == "__main__":
+    main()

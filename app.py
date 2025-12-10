@@ -5,7 +5,7 @@ from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_community.vectorstores import SKLearnVectorStore
 from langchain_text_splitters import CharacterTextSplitter
 from st_copy_to_clipboard import st_copy_to_clipboard
-
+from tempfile import NamedTemporaryFile
 
 from components.document import PDFDocumentLoader
 from components.embedding import HuggingFaceEmbedding

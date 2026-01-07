@@ -1,3 +1,5 @@
+import os
+import tempfile
 import streamlit as st
 
 from langchain.chains import create_retrieval_chain
@@ -5,6 +7,7 @@ from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_community.vectorstores import SKLearnVectorStore
 from langchain_text_splitters import CharacterTextSplitter
 from st_copy_to_clipboard import st_copy_to_clipboard
+from tempfile import NamedTemporaryFile
 
 
 from components.document import PDFDocumentLoader
@@ -85,4 +88,6 @@ def main():
     cover_me_app()
 
 
-st.text("CoverMe is temporarily unavailable, please try again after sometime.")
+#st.text("CoverMe is temporarily unavailable, please try again after sometime.")
+if __name__ == "__main__":
+    main()

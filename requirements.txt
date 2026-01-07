@@ -2,6 +2,7 @@ langchain-community
 langchain-cohere==0.1.7
 langchain==0.2.3
 langchain-core==0.2.22
+langchain-google-genai
 st-copy-to-clipboard
 langchain-text-splitters==0.2.1
 #langchain-chroma==0.1.1

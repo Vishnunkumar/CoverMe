@@ -75,10 +75,9 @@ def generate_index(uploaded_file):
 
 
 def initiate_llm(retreiver, option_key):
-    os.environ["COHERE_API_KEY"] = st.secrets["cohere-api-key"]
-    cohere_llm = CohereLLMChain().get_llm()
+    llm_model = choose_llm().get_llm()
     prompt_template = option_generators[option_key].get_template()
-    cohere_question_answer_chain = create_stuff_documents_chain(cohere_llm, prompt_template)
+    cohere_question_answer_chain = create_stuff_documents_chain(llm_model, prompt_template)
     cohere_rag_chain = create_retrieval_chain(retreiver, cohere_question_answer_chain)
     return cohere_rag_chain
 
@@ -86,6 +85,18 @@ def initiate_llm(retreiver, option_key):
 def main():
     st.set_page_config()
     cover_me_app()
+
+
+def choose_llm():
+    try {
+        os.environ["GOOGLE_API_KEY"] = st.secrets["google-api-key"]
+        llm_chain = GeminiLLMChain()
+        return llm_chain
+    } except Exception as e:
+        print(f"Gemini LLM not available, falling back to Cohere. Error: {e}")
+        os.environ["COHERE_API_KEY"] = st.secrets["cohere-api-key"]
+        llm_chain = CohereLLMChain()
+        return llm_chain
 
 
 #st.text("CoverMe is temporarily unavailable, please try again after sometime.")

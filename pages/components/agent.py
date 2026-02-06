@@ -7,7 +7,6 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import JsonOutputParser
 from langchain_perplexity import ChatPerplexity
 
-os.environ['PPLX_API_KEY'] = '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'
 
 llm = ChatPerplexity(temperature=0)
 

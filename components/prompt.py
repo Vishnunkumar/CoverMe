@@ -1,4 +1,8 @@
-from langchain_core.prompts import ChatPromptTemplate
+"""Prompt templates for generators.
+
+Note: For LangChain 2.0 we return plain template strings and let the caller
+wrap them in a PromptTemplate with the expected input variables.
+"""
 
 
 class Prompt:
@@ -34,7 +38,7 @@ class GeneratorPrompt(Prompt):
     """
 
     def __init__(self):
-        self.prompt = ChatPromptTemplate.from_template(self.generator_prompt)
+        self.prompt = self.generator_prompt
 
     def get_template(self):
         return self.prompt
@@ -68,7 +72,7 @@ class LinkedInMessagePrompt(Prompt):
         """
 
     def __init__(self):
-        self.prompt = ChatPromptTemplate.from_template(self.generator_prompt)
+        self.prompt = self.generator_prompt
 
     def get_template(self):
         return self.prompt
@@ -107,7 +111,7 @@ class ResumeModificationPrompt(Prompt):
         """
    
     def __init__(self):
-        self.prompt = ChatPromptTemplate.from_template(self.generator_prompt)
+        self.prompt = self.generator_prompt
 
     def get_template(self):
         return self.prompt

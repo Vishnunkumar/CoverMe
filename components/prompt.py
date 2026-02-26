@@ -21,6 +21,7 @@ class GeneratorPrompt(Prompt):
     
     - Write a cover letter body that sounds professional, natural & written by human
     - body of letter in the range of 150 to 250 words.
+    - Give importance to global brand like JpMorgan and experience if present.
     - Body should be written based on steps 1 to 3 mentioned next:
     - Step 1: Extract important ATS key words from input 2 given below
     - Step 2: Extract details about the company from input 2 given below + internet
@@ -54,7 +55,8 @@ class LinkedInMessagePrompt(Prompt):
         Instruction to write Body of message:
         
         - Write a message body that sounds professional, natural & written by human
-        - body of message in the range of 50 to 150 words.
+        - body of message in the range of 50 to 250 words.
+        - Give importance to global experience if available
         - Body should be written based on steps 1 to 3 mentioned next:
         - Step 1: Extract important ATS key words from input 2 given below
         - Step 2: Extract details about the company from input 2 given below + internet
